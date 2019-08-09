@@ -2,8 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {},
+  "main": "./dist/express.js",
+  "scripts": {
+    "build" : "tsc -p ./src",
+    "dev" : "nodemon ."
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
