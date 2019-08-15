@@ -4,5 +4,6 @@ import LoginController from "../controllers/login.Controller";
 export default class LoginRoute {
   constructor(app: Express) {
     app.route("/login").post(LoginController.createUser);
+    app.route("/login").get(LoginController.showUser);
   }
 }

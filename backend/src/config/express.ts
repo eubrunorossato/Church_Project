@@ -14,7 +14,7 @@ for (const route of Config.globFiles(Config.routes)) {
   require(path.resolve(route)).default(app);
 }
 
-mongoose.connect("mongodb://localhost/Church_Project", (err) => {
+mongoose.connect("mongodb://localhost:27017/Church_Project", (err) => {
   if (err) {
     console.log("Connection error");
   }
