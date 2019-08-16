@@ -28,12 +28,12 @@
     "redux-multi": "^0.1.12",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^1.14.0"
   },
   "dependencies": {
     "jwt-decode": "^2.2.0",
     "react-cookie": "^4.0.1",
-    "react-router-dom": "^5.0.1"
+    "react-router-dom": "^5.0.1",
+    "webpack-dev-server": "^1.16.2"
   }
 }
