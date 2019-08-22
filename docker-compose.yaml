@@ -1,0 +1,41 @@
+version: '3'
+services:
+  backend:
+    env_file: .env
+    build:
+      context: ./backend
+    volumes:
+      - './backend/dist:/app/dist/'
+    ports:
+      - "5001:3000"
+    depends_on:
+      - "db"
+    networks:
+      - webnet
+      
+  frontend:
+    build:
+      context: ./frontend
+    volumes:
+      - './frontend/src:/app/src'
+    ports:
+      - "5002:8080"
+    depends_on:
+      - "backend"
+      - "db"
+    networks:
+      - webnet
+  
+  db:
+    image: mongo:4.2.0-rc2-bionic
+    volumes:
+      - './data:/data'
+    ports:
+      - '27017:27017'
+    expose:
+      - '27017'
+    networks:
+      - webnet
+networks:
+  webnet:
+    driver: bridge
