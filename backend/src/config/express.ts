@@ -1,4 +1,4 @@
-import bodyParser, { urlencoded } from "body-parser";
+import * as bodyParser from "body-parser";
 import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import * as path from "path";
@@ -14,7 +14,7 @@ for (const route of Config.globFiles(Config.routes)) {
   require(path.resolve(route)).default(app);
 }
 
-mongoose.connect("mongodb://localhost:27017/Church_Project", (err) => {
+mongoose.connect("mongodb://localhost:27017/church_project", (err) => {
   if (err) {
     console.log("Connection error");
   }
