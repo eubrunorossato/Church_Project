@@ -6,12 +6,6 @@ export default class LoginController {
     try {
       const userToCreate = req.body;
       UserMember.create(userToCreate, (err: any, created: any) => {
-        // if (err && err.message) {
-        //   resp.send({
-        //    message: err.message,
-        //    status: false,
-        //   });
-        // }
         resp.send({
           data: created,
           error: err,
