@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/loginStyle.css"
+import "../Styles/loginStyle.css"
 import Button from "./button";
 
 export default props => (
