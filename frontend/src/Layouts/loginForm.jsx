@@ -1,6 +1,7 @@
 import React from "react";
 import "../Styles/loginStyle.css"
 import Button from "./button";
+import loginValidation from "../Query_Backend/loginValidation";
 
 export default props => (
     <div className="container">
@@ -12,10 +13,10 @@ export default props => (
                 <div className="jumbotron">
                     <div className="form-group">
                         <h5>User</h5>
-                        <input placeholder="User" className="form-control"></input>
+                        <input placeholder="User" id="userLogin" className="form-control"></input>
                         <h5>Password</h5>
-                        <input placeholder="Password" className="form-control"></input>
-                        <Button name="Submit" style="btn btn-primary"/>
+                        <input placeholder="Password" id="password" className="form-control"></input>
+                        <Button name="Log in" style="btn btn-primary" onClick={ loginValidation()}/>
                     </div>
                 </div>
             </div>

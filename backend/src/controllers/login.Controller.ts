@@ -3,8 +3,8 @@ import { UserMember } from "../models/user.model";
 
 export default class LoginController {
   public static createUser(req: Request, resp: Response) {
+    const userToCreate = req.body;
     try {
-      const userToCreate = req.body;
       UserMember.create(userToCreate, (err: any, created: any) => {
         resp.send({
           data: created,
@@ -19,6 +19,24 @@ export default class LoginController {
         status: false,
        });
     }
+  }
+
+  public static login (req: Request, resp: Response) {
+    const userData = req.body;
+    console.log(userData);
+      
+    UserMember.find({ userLogin: userData.userLogin, password: userData.password }, (err, result) => {
+      if(result[0] != undefined) {
+        resp.json({
+          status: true,
+        })
+      } else {
+        resp.json({
+          err: "Usuario ou senha incorreto",
+          status: false,
+        })
+      }  
+    })
   }
 
   public static showUser(req: Request, resp: Response) {
@@ -37,5 +55,4 @@ export default class LoginController {
       });
     }
   }
-
 }

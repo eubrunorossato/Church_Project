@@ -3,9 +3,11 @@ import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import * as path from "path";
 import Config from "./configs";
+import cors from "cors";
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -13,17 +15,10 @@ for (const route of Config.globFiles(Config.routes)) {
   console.log(route);
   require(path.resolve(route)).default(app);
 }
-
-mongoose.set("useNewUrlParser", true);
-  mongoose
-    .connect("mongodb://localhost/church_project", {
-      promiseLibrary: global.Promise,
-    })
-    .catch((err) => {
+  mongoose.connect("mongodb://localhost:27017/church_project", (err) => {
       console.log(err);
-      console.log("Error connecting to mongo");
-    });
-
+    })
+    
 app.listen(Config.port, () => {
   console.log("Running on 3000");
 });
