@@ -5,7 +5,6 @@ export default class Config {
   public static port: number = 3000;
   public static routes: string = "./dist/routes/**/*.js";
   public static models: string = "./dist/models/**/*.js";
-  // public static mongoDB: string = process.env.MONGODB_DSN;
   public static globFiles(location: string): string[] {
     return union([], sync(location));
   }
