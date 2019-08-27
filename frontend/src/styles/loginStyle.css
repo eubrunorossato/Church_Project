@@ -8,3 +8,9 @@
     background-color: rgba(35, 178, 255, 0.6);
     padding: 1rem 1rem;
 }
+
+.btn{
+    margin-top: 10px;
+    border-radius: inherit;
+    padding-right: 100px;
+}

@@ -19,7 +19,7 @@ services:
     volumes:
       - './frontend/src:/app/src'
     ports:
-      - "5002:8080"
+      - "5002:3000"
     depends_on:
       - "backend"
       - "db"
