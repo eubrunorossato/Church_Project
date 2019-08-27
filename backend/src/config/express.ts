@@ -15,9 +15,14 @@ for (const route of Config.globFiles(Config.routes)) {
   console.log(route);
   require(path.resolve(route)).default(app);
 }
-mongoose.connect(process.env.MONGODB_DSN || '"mongodb://db:27017/church_project"', (err) => {
-  console.log(err);
-})
+mongoose
+    .connect(Config.mongodb, {
+      promiseLibrary: global.Promise,
+      useMongoClient: true,
+    })
+    .catch(() => {
+      console.log("Error connecting to mongo");
+    });
 
 app.listen(Config.port, () => {
   console.log("Running on 3000");
