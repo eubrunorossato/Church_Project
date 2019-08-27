@@ -1,5 +1,5 @@
 import React from "react";
-import "../Styles/loginStyle.css"
+import "../styles/loginStyle.css"
 import Button from "./button";
 import loginValidation from "../Query_Backend/loginValidation";
 

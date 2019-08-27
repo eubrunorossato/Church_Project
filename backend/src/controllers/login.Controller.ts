@@ -24,19 +24,19 @@ export default class LoginController {
   public static login (req: Request, resp: Response) {
     const userData = req.body;
     console.log(userData);
-      
+
     UserMember.find({ userLogin: userData.userLogin, password: userData.password }, (err, result) => {
-      if(result[0] != undefined) {
+      if (result[0] !== undefined) {
         resp.json({
           status: true,
-        })
+        });
       } else {
         resp.json({
           err: "Usuario ou senha incorreto",
           status: false,
-        })
-      }  
-    })
+        });
+      }
+    });
   }
 
   public static showUser(req: Request, resp: Response) {
