@@ -15,13 +15,13 @@ for (const route of Config.globFiles(Config.routes)) {
 }
 
 mongoose.set("useNewUrlParser", true);
-  mongoose
+mongoose
     .connect("mongodb://localhost/church_project", {
       promiseLibrary: global.Promise,
     })
     .catch((err) => {
       console.log(err);
-      console.log("Error connecting to mongo");
+      console.log("Error connecting");
     });
 
 app.listen(Config.port, () => {
