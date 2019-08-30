@@ -1,17 +1,20 @@
-import React from "react"
+import React, { Component } from "react";
 import axios from "axios";
 
-const loginValidation = () => {
-    axios.post("http://localhost:3000/authLogin", {
-        userLogin: document.getElementById("userLogin"),
-        password: document.getElementById("password"),
-    })
-    .then((resp) => {
-        console.log(resp)
-    })
-    .catch((err) => {
-        console.log(err);
-    })
+class UserValue extends Component {
+
+    constructor(props){
+        super(props)
+
+        this.state = { 
+            userLogin: "",
+        }
+        this.UserValue = this.UserValue.bind(this)
+    }
+
+    UserValue(e) {
+        return this.setState({ ...this.setState, userLogin: e.target.value})
+    }
 }
 
-export default loginValidation;
+export default UserValue;

@@ -21,22 +21,43 @@ export default class LoginController {
     }
   }
 
-  public static login (req: Request, resp: Response) {
+  public static async login(req: Request, resp: Response) {
     const userData = req.body;
-    console.log(userData);
+    // console.log(userData);
 
-    UserMember.find({ userLogin: userData.userLogin, password: userData.password }, (err, result) => {
-      if (result[0] !== undefined) {
-        resp.json({
-          status: true,
-        });
-      } else {
-        resp.json({
-          err: "Usuario ou senha incorreto",
-          status: false,
-        });
+    // UserMember.find({ userLogin: userData.userLogin, password: userData.password }, (err, result) => {
+    //   if (result[0] !== undefined) {
+    //     resp.json({
+    //       status: true,
+    //     });
+    //   } else {
+    //     resp.json({
+    //       err: "Usuario ou senha incorreto",
+    //       status: false,
+    //     });
+    //   }
+    // });
+    try {
+      const data = await UserMember.find({ userLogin: userData.userLogin, password: userData.password });
+
+      console.log(data);
+      
+
+      if ( data.length === 0 ) {
+        throw new Error("Usuario ou senha incorretos");
       }
-    });
+
+      resp.json({
+        message: "Logou",
+        status: true,
+      });
+    } catch (err) {
+      resp.json({
+        message: err.message,
+        status: false,
+      });
+    }
+
   }
 
   public static showUser(req: Request, resp: Response) {
