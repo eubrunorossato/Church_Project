@@ -40,9 +40,6 @@ export default class LoginController {
     try {
       const data = await UserMember.find({ userLogin: userData.userLogin, password: userData.password });
 
-      console.log(data);
-      
-
       if ( data.length === 0 ) {
         throw new Error("Usuario ou senha incorretos");
       }
@@ -57,7 +54,6 @@ export default class LoginController {
         status: false,
       });
     }
-
   }
 
   public static showUser(req: Request, resp: Response) {
