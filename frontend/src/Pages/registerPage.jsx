@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Login from "../Layouts/loginForm";
+import RegisterForm from "../Layouts/registerForm";
 import axios from "axios"
 
 const URL = "http://localhost:5001/authLogin"
@@ -11,35 +11,30 @@ export default class LoginPage extends Component {
 
         this.state = { 
             userLogin: "",
-            password: "", 
+            password: "",
+            name: "",
+            lastName: "",
+            email: "",
         }
-        this.change = this.change.bind(this)
-        this.loginValidation = this.loginValidation.bind(this)
+        this.change = this.change.bind(this);
     }
 
     change = (e) => {
         this.setState({
             [e.target.id]: e.target.value,
-        })    
-    }
-    
-    loginValidation() {
-        axios.post(URL, {
-            userLogin: this.state.userLogin,
-            password: this.state.password,
         })
-        .then( (resp) => console.log(resp))
     }
 
     render(){
         return(
             <div>
-                <Login 
+                <RegisterForm 
                 userLogin={this.state.userLogin}
                 password={this.state.password}
-                onChange={this.change}
-                loginValidation={this.loginValidation}
-                onChangePassword={this.passwordValue}/>
+                name={this.state.name}
+                lastName={this.state.lastName}
+                email={this.email}
+                onChange={this.change}/>
             </div>    
         )
     }

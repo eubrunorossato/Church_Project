@@ -1,8 +1,8 @@
-import * as bodyParser from "body-parser";
+import bodyParser from "body-parser";
 import cors from "cors";
 import express, { Request, Response } from "express";
 import mongoose from "mongoose";
-import * as path from "path";
+import path from "path";
 import Config from "./configs";
 
 const app = express();
@@ -16,9 +16,8 @@ for (const route of Config.globFiles(Config.routes)) {
   require(path.resolve(route)).default(app);
 }
 
-mongoose.set("useNewUrlParser", true);
 mongoose
-    .connect("mongodb://localhost/church_project", {
+    .connect(Config.mongodb, {
       promiseLibrary: global.Promise,
       useMongoClient: true,
     })

@@ -5,7 +5,7 @@ export default class Config {
   public static port: number = 3000;
   public static routes: string = "./dist/routes/**/*.js";
   public static models: string = "./dist/models/**/*.js";
-  public static mongodb: string = process.env.MONGODB_DSN || "mongodb://db:27017/curch_project";
+  public static mongodb: string = "mongodb://db:27017/curch_project";
   public static globFiles(location: string): string[] {
     return union([], sync(location));
   }

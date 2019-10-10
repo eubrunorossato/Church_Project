@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/loginStyle.css"
+import "../Styles/loginStyle.css"
 import Button from "./button";
 
 export default props => (
@@ -16,7 +16,7 @@ export default props => (
                         id="userLogin" 
                         className="form-control" 
                         value={props.userLogin}
-                        onChange={props.onChangeLogin}>
+                        onChange={props.onChange}>
                         </input>
                         <h5>Password</h5>
 
@@ -24,7 +24,7 @@ export default props => (
                         id="password" 
                         className="form-control" 
                         value={props.password}
-                        onChange={props.onChangePassword}></input>
+                        onChange={props.onChange}></input>
                         <Button name="Log in" style="btn btn-primary" onClick={props.loginValidation}/>
                     </div>
                 </div>

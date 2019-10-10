@@ -1,5 +1,5 @@
 import React from "react"
-import Login from "../pages/loginPage"
+import Login from "../Pages/loginPage"
 
 const Auth = (props) => {
     if(localStorage.getItem("token") && localStorage.getItem("refreshToken")){
