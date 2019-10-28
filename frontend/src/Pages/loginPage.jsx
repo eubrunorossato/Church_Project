@@ -6,12 +6,12 @@ const URL = "http://localhost:5001/authLogin"
 
 export default class LoginPage extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
 
-        this.state = { 
+        this.state = {
             userLogin: "",
-            password: "", 
+            password: "",
         }
         this.change = this.change.bind(this)
         this.loginValidation = this.loginValidation.bind(this)
@@ -20,27 +20,28 @@ export default class LoginPage extends Component {
     change = (e) => {
         this.setState({
             [e.target.id]: e.target.value,
-        })    
+        })
     }
-    
+
     loginValidation() {
         axios.post(URL, {
             userLogin: this.state.userLogin,
             password: this.state.password,
         })
-        .then( (resp) => console.log(resp))
+            .then((resp) => console.log(resp))
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                <Login 
-                userLogin={this.state.userLogin}
-                password={this.state.password}
-                onChange={this.change}
-                loginValidation={this.loginValidation}
-                onChangePassword={this.passwordValue}/>
-            </div>    
+                <Login
+                    userLogin={this.state.userLogin}
+                    password={this.state.password}
+                    changeUserLogin={this.change}
+                    // loginValidation={this.loginValidation}
+                    changePassword={this.change}
+                />
+            </div>
         )
     }
 }

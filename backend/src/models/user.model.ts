@@ -1,7 +1,7 @@
 import { Model, model, Schema } from "mongoose";
 import { IUserMemberDb } from "../interfaces/userMember.interface";
 
-export let UserMemberSchema: Schema = new Schema ({
+export let UserMemberSchema: Schema = new Schema({
     created: {
         required: true,
         type: Schema.Types.Date,
@@ -26,9 +26,14 @@ export let UserMemberSchema: Schema = new Schema ({
         required: true,
         type: Schema.Types.String,
     },
+    celula: {
+        required: true,
+        type: Schema.Types.String,
+    },
 });
 
-export const UserMember: Model<IUserMemberDb> = model<IUserMemberDb> (
+export const UserMember: Model<IUserMemberDb> = model<IUserMemberDb>(
     "User",
     UserMemberSchema,
 );
+

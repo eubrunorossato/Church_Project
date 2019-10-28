@@ -1,21 +1,28 @@
 import React, { Component } from "react";
 import Login from "../Pages/loginPage";
 import RegisterPage from "../Pages/registerPage";
-import Authentication from "../Logic/Authentication";
+import Index from "../Pages/indexPage";
 
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+const Authentication = props => {
+  if (localStorage.getItem("token") && localStorage.getItem("refreshToken")) {
+    return props.children
+  }
+  return <Login />;
+};
 
 class Main extends Component {
-    render(){
-        return(
-            <Router>
-
-                <Authentication>    
-                    <Route exact path="/register" component={RegisterPage}/>
-                </Authentication>
-            </Router>
-        )
-    }
+  render() {
+    return (
+      <BrowserRouter>
+        <Authentication component={Authentication}>
+          <Route exact path="/" component={Index} />
+          <Route exact path="/register" component={RegisterPage} />
+        </Authentication>
+      </BrowserRouter>
+    );
+  }
 }
 
-export default Main
+export default Main;

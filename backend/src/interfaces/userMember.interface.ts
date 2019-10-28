@@ -17,6 +17,7 @@ export interface IUserMember {
     email: string;
     userLogin: string;
     password: string;
+    celula: string;
     created: Date;
 }
 
