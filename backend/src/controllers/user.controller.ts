@@ -3,7 +3,7 @@ import { UserMember } from "../models/user.model";
 
 export default class LoginController {
   public static async createUser(req: Request, resp: Response) {
-    const user = req.body;
+    const user = req.body.form;
     try {
       console.log(user)
       const created = await UserMember.create({

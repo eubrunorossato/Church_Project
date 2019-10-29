@@ -2,26 +2,10 @@ import { Request, Response } from "express";
 import { UserMember } from "../models/user.model";
 
 export default class UserController {
-  public static async createUser(req: Request, resp: Response) {
-    const userToCreate = req.body;
-    try {
-      UserMember.create(userToCreate, (err: any, created: any) => {
-        resp.send({
-          data: created,
-          message: "Creation was done",
-          status: true,
-        });
-      });
-    } catch (err) {
-      resp.send({
-        message: err.message,
-        status: false,
-      });
-    }
-  }
-
   public static async login(req: Request, resp: Response) {
-    const userData = req.body;
+    const userData = req.body.loginForm;
+    console.log(userData);
+
     try {
       const data = await UserMember.find({ userLogin: userData.userLogin, password: userData.password });
 
