@@ -40,7 +40,8 @@ class LoginForm extends Component {
                                     ></input>
                                     <Button name="Log in"
                                         style="btn btn-primary"
-                                        onClick={(e) => loginValidation(e, userLogin, password)}
+                                        onClick={(e) => loginValidation(e, { userLogin, password }
+                                        )}
                                     />
                                 </div>
                             </form>
@@ -53,6 +54,6 @@ class LoginForm extends Component {
         )
     }
 }
-const mapStateToProps = state => ({ userLogin: state.form.userLogin, password: state.form.password });
+const mapStateToProps = state => ({ userLogin: state.formLogin.userLogin, password: state.formLogin.password });
 const mapDispatachToProps = dispatch => bindActionCreators({ changeUserLogin, changePassword, loginValidation }, dispatch);
 export default connect(mapStateToProps, mapDispatachToProps)(LoginForm);
