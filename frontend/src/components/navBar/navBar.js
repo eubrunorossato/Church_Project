@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, NavItem, Dropdown, Divider, Icon } from "react-materialize";
-
+import DropDownButton from "../dropDown/dropDowButton";
 
 const navBar = () => {
   return (
@@ -10,9 +10,7 @@ const navBar = () => {
           home
         </Icon>
       </NavItem>
-      <NavItem href="">
-        Relatórios Semanais
-      </NavItem>
+      <DropDownButton />
       <NavItem href="components.html">
         Membros
       </NavItem>
@@ -28,7 +26,7 @@ const navBar = () => {
           three
         </a>
       </Dropdown>
-    </Navbar>
+    </Navbar >
   )
 }
 
