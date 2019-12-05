@@ -7,14 +7,14 @@ const navBar = () => {
     <Navbar brand={<a />} alignLinks="left">
       <NavItem>
         <Icon>
-          favorite
+          home
         </Icon>
       </NavItem>
       <NavItem href="">
-        Getting started
+        Relatórios Semanais
       </NavItem>
       <NavItem href="components.html">
-        Components
+        Membros
       </NavItem>
       <Dropdown trigger={<a />}>
         <a href="#">
