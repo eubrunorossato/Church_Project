@@ -2,10 +2,10 @@ import { Request, Response } from "express";
 import { UserMember } from "../models/user.model";
 
 export default class LoginController {
-  public static async createUser(req: Request, resp: Response) {
-    const user = req.body.form;
+  public static async createUser(req: Request, res: Response) {
+    const user = req.body;
     try {
-      console.log(user)
+      console.log(req)
       const created = await UserMember.create({
         userLogin: user.userLogin,
         created: Date.now(),
@@ -15,31 +15,30 @@ export default class LoginController {
         email: user.email,
         celula: user.celula,
       });
-      resp.json({
+      res.json({
         data: created,
         message: "Creation was done",
         status: true,
       });
     } catch (err) {
-      resp.json({
+      res.json({
         message: err.message,
         status: false,
       });
     }
   }
 
-  public static async readUser(req: Request, resp: Response) {
+  public static async readUser(req: Request, res: Response) {
     const filter = req.body.name ? req.body : {};
     try {
       const user = await UserMember.find(filter);
-      JSON.stringify(user);
-      resp.json({
+      res.json({
         data: user,
         message: "Users Returned",
         status: true,
       });
     } catch (err) {
-      resp.json({
+      res.json({
         message: err.message,
         status: false,
       });
