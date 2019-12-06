@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Dropdown, Icon, Divider } from "react-materialize";
+import { Dropdown, Icon, Divider } from "react-materialize";
+import "./dropDownButton.scss";
 
 const dropDownButton = () => {
   return (
@@ -7,7 +8,7 @@ const dropDownButton = () => {
       options={{
         alignment: 'left',
         autoTrigger: true,
-        closeOnClick: true,
+        closeOnClick: false,
         constrainWidth: true,
         container: true,
         coverTrigger: false,
@@ -17,27 +18,17 @@ const dropDownButton = () => {
       }}
       trigger={<a>Relatorios Semanais</a>}>
       <a href="#">
-        one
-          </a>
-      <a href="#">
-        two
-          </a>
-      <Divider />
-      <a href="#">
-        three
-          </a>
+        <Icon>
+          folder
+        </Icon>
+        Ver
+      </a>
       <a href="#">
         <Icon>
-          view_module
-            </Icon>
-        four
-          </a>
-      <a href="#">
-        <Icon>
-          cloud
-            </Icon>
-        {' '}five
-          </a>
+          control_point
+        </Icon>
+        Criar
+      </a>
     </Dropdown>
   )
 }

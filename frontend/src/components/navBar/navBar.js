@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, NavItem, Dropdown, Divider, Icon } from "react-materialize";
-import DropDownButton from "../dropDown/dropDowButton";
+import DropDownButton from "../dropDown/dropDownButton";
 
 const navBar = () => {
   return (
