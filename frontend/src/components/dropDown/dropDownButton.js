@@ -1,5 +1,5 @@
 import React from "react";
-import { Dropdown, Icon, Divider } from "react-materialize";
+import { Dropdown, Icon } from "react-materialize";
 import "./dropDownButton.scss";
 
 const dropDownButton = () => {
@@ -19,7 +19,7 @@ const dropDownButton = () => {
       trigger={<a>Relatorios Semanais</a>}>
       <a href="#">
         <Icon>
-          folder
+          attachment
         </Icon>
         Ver
       </a>
