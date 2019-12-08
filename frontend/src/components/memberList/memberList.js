@@ -1,24 +1,26 @@
 import React from "react";
-import { Table } from "react-materialize";
+import { Table, CardPanel } from "react-materialize";
 import "./memberList.scss"
 
 const userList = () => {
   return (
     <div className="container">
-      <Table className="memberList" striped="true">
-        <thead>
-          <tr>
-            <th data-field="id">
-              Membros
+      <CardPanel className="card-panel">
+        <Table striped="true">
+          <thead>
+            <tr>
+              <th data-field="id">
+                Membros
             </th>
-            <th data-field="name">
-              Faltas
+              <th data-field="name">
+                Faltas
             </th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </Table>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </Table>
+      </CardPanel>
     </div>
   )
 }

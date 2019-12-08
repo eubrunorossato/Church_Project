@@ -1,4 +1,12 @@
 .memberList{
-  background-color:#eae3e3;
+  background-color:#ffffff;
   margin-top: 10px;
+}
+
+.card-panel {
+    transition: box-shadow .25s;
+    padding: 24px;
+    margin: 15px !important;
+    border-radius: 20px !important;
+    background-color: rgb(253, 243, 243) !important;
 }
