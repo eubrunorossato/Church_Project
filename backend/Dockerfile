@@ -10,6 +10,6 @@ COPY . .
 
 EXPOSE 3000
 
-RUN npm run build
+CMD npm run build
 
-CMD npm run dev
+RUN npm run dev
