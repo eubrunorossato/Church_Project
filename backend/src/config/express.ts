@@ -10,5 +10,8 @@ export default () => {
 
   mongoose
     .connect(`${ServerConfig.mongooseHost}${ServerConfig.mongoosePort}/${ServerConfig.mongooseDbName}`,
-      { useNewUrlParser: true });
+      { useNewUrlParser: true })
+    .catch((err: Error) => {
+      console.log(err);
+    });
 };
