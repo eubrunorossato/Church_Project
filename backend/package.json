@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
-    "dev": "nodemon --legacy-watch --watch ."
+    "dev": "nodemon ."
   },
   "keywords": [],
   "author": "",
