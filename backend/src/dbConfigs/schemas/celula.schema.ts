@@ -12,4 +12,4 @@ const celulaSchema: Schema = new Schema({
 
 const celula: Model<ICelula> = model<ICelula>("Celula", celulaSchema);
 
-export { celula };
+export default celula;
