@@ -7,4 +7,5 @@ export interface ICelula extends mongoose.Document {
   celulaLeader: string;
   celulaTime: Date;
   celulaTrainingLeader?: string;
+  celulaIsOn: boolean;
 }
