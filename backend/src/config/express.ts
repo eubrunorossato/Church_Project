@@ -1,17 +1,19 @@
 import bodyParser from "body-parser";
 import express from "express";
 import mongoose from "mongoose";
+import { CelulaRoutes } from "../API/celula.routes";
 import { ServerConfig } from "./config";
 
-export default () => {
-  const server = express();
+const server = express();
 
-  server.use(bodyParser.json());
+server.use(bodyParser.json());
+CelulaRoutes(server);
 
-  mongoose
-    .connect(`${ServerConfig.mongooseHost}${ServerConfig.mongoosePort}/${ServerConfig.mongooseDbName}`,
-      { useNewUrlParser: true })
-    .catch((err: Error) => {
-      console.log(err);
-    });
-};
+mongoose
+  .connect(`${ServerConfig.mongooseHost}${ServerConfig.mongoosePort}/${ServerConfig.mongooseDbName}`,
+    { useNewUrlParser: true })
+  .catch((err: Error) => {
+    console.log(err);
+  });
+
+export { server };
