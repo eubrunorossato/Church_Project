@@ -3,9 +3,9 @@
     "extends": [
         "tslint:recommended"
     ],
-    "jsRules": {
-        "tslint": "disable-next-line: no-shadowed-variable"
+    "jsRules": {},
+    "rules": {
+        "no-shadowed-variable": false
     },
-    "rules": {},
     "rulesDirectory": []
 }
