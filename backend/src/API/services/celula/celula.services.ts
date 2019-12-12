@@ -34,7 +34,6 @@ const catchCelulas = async (req: Request, res: Response) => {
       response,
     });
   }
-
 };
 
 const createNewCelula = async (req: Request, res: Response) => {
@@ -68,10 +67,36 @@ const createNewCelula = async (req: Request, res: Response) => {
   res.json({
     response,
   });
+};
 
+const updateCelulaState = async (req: Request, res: Response) => {
+  const body: ICelula = req.body;
+  const idCelulaFilter: object = body._id;
+  const celulaUpate: object = body;
+
+  await celulaSchema.findByIdAndUpdate(idCelulaFilter, celulaUpate, (err: Error) => {
+    if (err) {
+      const response: IResponse = {
+        message: err.message,
+        status: false,
+      };
+      res.json({
+        response,
+      });
+    }
+  });
+
+  const response: IResponse = {
+    message: "Celula atualizada com sucesso",
+    status: true,
+  };
+  res.json({
+    response,
+  });
 };
 
 export {
   catchCelulas,
   createNewCelula,
+  updateCelulaState,
 };
