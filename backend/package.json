@@ -12,8 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "typescript": "^3.7.3",
-    "mongoose": "^5.7.14"
+    "mongoose": "^5.7.14",
+    "typescript": "^3.7.3"
   },
   "devDependencies": {
     "@types/body-parser": "^1.17.1",
