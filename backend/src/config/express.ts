@@ -1,7 +1,7 @@
 import bodyParser from "body-parser";
 import express from "express";
 import mongoose from "mongoose";
-import { CelulaRoutes } from "../API/celula.routes";
+import { CelulaRoutes } from "../API/routes/celula.routes";
 import { ServerConfig } from "./config";
 
 const server = express();
