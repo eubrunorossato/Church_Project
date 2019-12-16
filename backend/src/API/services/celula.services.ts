@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { ICelula } from "../../../dbConfigs/schemaInterfaces/celula.interface";
-import celulaSchema from "../../../dbConfigs/schemas/celula.schema";
-import { IResponse } from "../responseInterfaces/findResponse.interface";
+import { ICelula } from "../../dbConfigs/schemaInterfaces/celula.interface";
+import celulaSchema from "../../dbConfigs/schemas/celula.schema";
+import { IResponse } from "./responseInterfaces/findResponse.interface";
 
 const catchCelulas = async (req: Request, res: Response) => {
   const celulaFilter: object = req.body.celulaName ? req.body : {};
@@ -15,7 +15,7 @@ const catchCelulas = async (req: Request, res: Response) => {
         response,
       });
     }
-  });
+  }).populate({ path: "leaderFrom", select: "celulaName" });
 
   if (celulaList.length === 0) {
     const response: IResponse = {
