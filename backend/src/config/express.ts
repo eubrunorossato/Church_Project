@@ -1,13 +1,15 @@
 import bodyParser from "body-parser";
 import express from "express";
 import mongoose from "mongoose";
-import { CelulaRoutes } from "../API/routes/celula.routes";
+import { celulaRoutes } from "../API/routes/celula.routes";
+import { leaderRoute } from "../API/routes/leader.routes";
 import { ServerConfig } from "./config";
 
 const server = express();
 
 server.use(bodyParser.json());
-CelulaRoutes(server);
+celulaRoutes(server);
+leaderRoute(server);
 
 mongoose
   .connect(`${ServerConfig.mongooseHost}${ServerConfig.mongoosePort}/${ServerConfig.mongooseDbName}`,
