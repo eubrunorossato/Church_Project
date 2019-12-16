@@ -15,7 +15,7 @@ const catchAllLeaders = async (req: Request, res: Response) => {
         response,
       });
     }
-  }).populate("leaderFrom", "celulaName");
+  }).populate("ledFrom", "celulaName");
 
   if (leaderList.length === 0) {
     const response: IResponse = {
