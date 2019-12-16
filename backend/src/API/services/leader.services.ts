@@ -69,7 +69,34 @@ const createNewLeader = async (req: Request, res: Response) => {
   });
 };
 
+const leaderFieldsUpdate = async (req: Request, res: Response) => {
+  const body: ILeader = req.body;
+  const updateFilter: object = body;
+  const idUpdateFilter = body._id;
+
+  await leaderSchema.findByIdAndUpdate(idUpdateFilter, updateFilter, (err: Error) => {
+    if (err) {
+      const response: IResponse = {
+        message: err.message,
+        status: false,
+      };
+      res.json({
+        response,
+      });
+    }
+  });
+
+  const response: IResponse = {
+    message: "Lider atualizado com sucesso",
+    status: true,
+  };
+  res.json({
+    response,
+  });
+};
+
 export {
   catchAllLeaders,
   createNewLeader,
+  leaderFieldsUpdate,
 };
