@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { ILed } from "../../dbConfigs/schemaInterfaces/led.interface";
 import { led } from "../../dbConfigs/schemas/led.schema";
 import { IResponse } from "./responseInterfaces/findResponse.interface";
+import { Schema } from "mongoose";
 let response: IResponse = {
   message: "",
   status: true,
@@ -22,8 +23,8 @@ const catchAllLeds = async (req: Request, res: Response) => {
       });
     }
   })
-    .populate("ledCelula", "celulaLeader")
-    .populate("ledFrom", "celulaName");
+    .populate("ledCelula", "celulaName")
+    .populate("ledFrom", "celulaLeader");
 
   if (allLeds.length === 0) {
     response = {
@@ -37,7 +38,7 @@ const catchAllLeds = async (req: Request, res: Response) => {
 
   response = {
     data: allLeds,
-    status: false,
+    status: true,
   };
   res.json({
     response,
@@ -71,7 +72,32 @@ const createLed = async (req: Request, res: Response) => {
 
   response = {
     message: "Liderado criado com sucesso",
-    status: false,
+    status: true,
+  };
+  res.json({
+    response,
+  });
+};
+const updateLedFields = async (req: Request, res: Response) => {
+  const body: ILed = req.body;
+  const ledId: Schema.Types.ObjectId = body._id;
+  const fieldsToBeUpdate: object = body;
+
+  await led.findByIdAndUpdate(ledId, fieldsToBeUpdate, (error: Error) => {
+    if (error) {
+      response = {
+        message: "Não foi possivel atualizar seu liderado",
+        status: false,
+      };
+      res.json({
+        response,
+      });
+    }
+  });
+
+  response = {
+    message: "Liderado atualizado com sucesso",
+    status: true,
   };
   res.json({
     response,
@@ -81,4 +107,5 @@ const createLed = async (req: Request, res: Response) => {
 export {
   catchAllLeds,
   createLed,
+  updateLedFields,
 };
